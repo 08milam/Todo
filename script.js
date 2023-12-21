@@ -34,3 +34,13 @@ const displayItem = document.querySelector('#toDoList');
         displayItem.appendChild(newItem);
 });
 
+let targetElement = document.querySelector(".navbar");
+let halfwayPoint = window.innerHeight / 35;
+window.onscroll = function() {
+  let scrollPosition = window.scrollY;
+  if (scrollPosition >= halfwayPoint) {
+    targetElement.style.backgroundColor = "rgba(23, 23, 23, 1)"; 
+  } else {
+    targetElement.style.backgroundColor = "transparent";
+  }
+};
