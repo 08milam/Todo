@@ -1,6 +1,6 @@
 
 
-/*Made By: Charles M Milam Jr | Date: 10-14-23 | ToDo.css*/
+/*Made By: Charles M Milam Jr |  | ToDo.css*/
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // TOP MENU BAR
