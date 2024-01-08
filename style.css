@@ -1,114 +1,113 @@
-
 /*Made By: Charles M Milam Jr |  | ToDo.css*/
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* MAIN CONTAINER */
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #6e8898;
-    color: #2E5266FF;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6e8898;
+  color: #2e5266ff;
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* NAVIGATION MENU */
-.navbar{
-    width: 100dvw;
-    height: 5dvh;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    padding: px;
-    word-spacing: 1.5dvi;
-    transition: background-color 0.5s;
-    top: 0;
-    /* filter: invert(75%); */
+.navbar {
+  width: 100dvw;
+  height: 5dvh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  padding: px;
+  word-spacing: 1.5dvi;
+  transition: background-color 0.5s;
+  top: 0;
+  /* filter: invert(75%); */
 }
 
-.navbar-link{
-    text-decoration: none;
-    color: #D3D0CBFF;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    background: transparent;
+.navbar-link {
+  text-decoration: none;
+  color: #d3d0cbff;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: transparent;
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* CONTAINS ALL CONTENT */
-.list-container{
-    /* filter: invert(100%); */
-    margin-bottom: 50px;
-    margin-top: 50px;
-    background-color: rgba(180, 180, 180, 0.334);
-    padding: 50px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px;
+.list-container {
+  /* filter: invert(100%); */
+  margin-bottom: 50px;
+  margin-top: 50px;
+  background-color: rgba(180, 180, 180, 0.334);
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px;
 }
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* LISTED ITEMS */
-li{
-    list-style-type: none;
-    height: 25px;
-    padding: 5px;
-    background-color: #9FB1BCFF;
-    border-radius: 5px;
-    font-size: 22px;
+li {
+  list-style-type: none;
+  height: 25px;
+  padding: 5px;
+  background-color: #9fb1bcff;
+  border-radius: 5px;
+  font-size: 22px;
 }
 
-li:nth-child(even){
-    list-style-type: none;
-    height: 25px;
-    background-color: transparent;
-    padding: 5px;
+li:nth-child(even) {
+  list-style-type: none;
+  height: 25px;
+  background-color: transparent;
+  padding: 5px;
 }
 
-.list{
-    margin-left: -40px;
+.list {
+  margin-left: -40px;
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* ADD ITEMS */
-#input{
-    width: 190px;
-    height: 33px;
-    border-radius: 5px 0 0 5px ;
-    border: 0;
-    padding-left: 5px;
+#input {
+  width: 190px;
+  height: 33px;
+  border-radius: 5px 0 0 5px;
+  border: 0;
+  padding-left: 5px;
 }
 /* ADD BUTTON */
-.add{
-    width: 60px;
-    height: 35px;
-    background-color: #2E5266FF;
-    color: #D3D0CBFF;
-    border-radius: 0 5px 5px 0;
-    border: 0;
+.add {
+  width: 60px;
+  height: 35px;
+  background-color: #2e5266ff;
+  color: #d3d0cbff;
+  border-radius: 0 5px 5px 0;
+  border: 0;
 }
-.add:hover{
-    background-color: rgb(63, 114, 141);
-    transition: .200s;
+.add:hover {
+  background-color: rgb(63, 114, 141);
+  transition: 0.2s;
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* DELETE BUTTON */
-.remove{
-    background-color: transparent;
-    color: lightgrey;
-    position: relative;
-    float: inline-end;
-    border-radius: 5px;
-    border: 0;
-    font-size: 22px;
+.remove {
+  background-color: transparent;
+  color: lightgrey;
+  position: relative;
+  float: inline-end;
+  border-radius: 5px;
+  border: 0;
+  font-size: 22px;
 }
 
-.remove:hover{
-    background-color: rgba(139, 0, 0, 0.458);
-    color: aliceblue;
-    transition: .200s;
+.remove:hover {
+  background-color: rgba(139, 0, 0, 0.458);
+  color: aliceblue;
+  transition: 0.2s;
 }
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 /* CROSS THROUGH COMPLEATE */
 .completed {
-    text-decoration: line-through;
-    text-decoration-color: aliceblue;
-  }
+  text-decoration: line-through;
+  text-decoration-color: aliceblue;
+}

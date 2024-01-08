@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #todoList {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 8px;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .deleteBtn {
+      margin-left: 5px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="todoList">
+  <h2>ToDo List</h2>
+  <input type="text" id="taskInput" placeholder="New Task">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="tasks"></ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Load tasks from local storage
+    loadTasks();
+  });
+
+  function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskList = document.getElementById("tasks");
+
+    if (taskInput.value.trim() === "") {
+      alert("Please enter a task.");
+      return;
+    }
+
+    // Create a new list item
+    var li = document.createElement("li");
+    li.textContent = taskInput.value;
+
+    // Create a delete button for the task
+    var deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.className = "deleteBtn";
+    deleteButton.onclick = function() {
+      // Remove the task when the delete button is clicked
+      taskList.removeChild(li);
+      // Save tasks to local storage after removal
+      saveTasks();
+    };
+
+    // Append the delete button to the list item
+    li.appendChild(deleteButton);
+
+    // Append the new task to the list
+    taskList.appendChild(li);
+
+    // Save tasks to local storage
+    saveTasks();
+
+    // Clear the input field
+    taskInput.value = "";
+  }
+
+  function saveTasks() {
+    var taskList = document.getElementById("tasks");
+    var tasks = [];
+
+    // Iterate through each task and store it in the array
+    for (var i = 0; i < taskList.children.length; i++) {
+      tasks.push(taskList.children[i].textContent);
+    }
+
+    // Save tasks to local storage
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  function loadTasks() {
+    var taskList = document.getElementById("tasks");
+    var storedTasks = localStorage.getItem("tasks");
+
+    if (storedTasks) {
+      // Parse the stored tasks from local storage
+      var tasks = JSON.parse(storedTasks);
+
+      // Populate the task list with the stored tasks
+      tasks.forEach(function(task) {
+        var li = document.createElement("li");
+        li.textContent = task;
+
+        // Create a delete button for the task
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "deleteBtn";
+        deleteButton.onclick = function() {
+          // Remove the task when the delete button is clicked
+          taskList.removeChild(li);
+          // Save tasks to local storage after removal
+          saveTasks();
+        };
+
+        // Append the delete button to the list item
+        li.appendChild(deleteButton);
+
+        // Append the task item to the list
+        taskList.appendChild(li);
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
