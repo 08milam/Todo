@@ -1,92 +1,79 @@
 /*Made By: Charles M Milam Jr |  | ToDo.css*/
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// TOP MENU BAR
-function menu() {
-  let targetElement = document.querySelector(".navbar");
-  let halfwayPoint = window.innerHeight / 35;
-  window.onscroll = function () {
-    let scrollPosition = window.scrollY;
-    if (scrollPosition >= halfwayPoint) {
-      targetElement.style.backgroundColor = "#2E5266FF";
-    } else {
-      targetElement.style.backgroundColor = "transparent";
-    }
-  };
+// Top Menu Bar
+function setupMenuBar() {
+  const navbar = document.querySelector(".navbar");
+  const halfwayPoint = window.innerHeight / 35;
+
+  window.addEventListener("scroll", function () {
+    const scrollPosition = window.scrollY;
+    navbar.style.backgroundColor = scrollPosition >= halfwayPoint ? "#2E5266FF" : "transparent";
+  });
 }
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// CREATE ITEM
-
-function create(inputValue) {
+// Create Item
+function createItem(inputValue) {
   const displayItem = document.querySelector("#toDoList");
   const newItem = document.createElement("li");
-  newItem.setAttribute("class", "item");
+  newItem.classList.add("item");
   newItem.textContent = inputValue;
   displayItem.prepend(newItem);
 
-  // add x delete btn
+  // Add delete button
   const remove = document.createElement("button");
-  remove.setAttribute("class", "remove");
+  remove.classList.add("remove");
   remove.textContent = "X";
   newItem.appendChild(remove);
+  
   remove.addEventListener("click", function (e) {
-    e.target.parentElement.remove();
-    // todos = todos.filter(t => )
+    const parentElement = e.target.parentElement;
+    parentElement.remove();
     removeFromStorage(inputValue);
   });
 }
 
 function removeFromStorage(inputValue) {
-  let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-
-  let index = tasks.findIndex((element) => element.content === inputValue);
+  const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+  const index = tasks.findIndex((element) => element.content === inputValue);
   tasks.splice(index, 1);
-  console.log(tasks);
-  console.log(index);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// STORING ITEMS IN MEMORY
-let storage = function (inputValue) {
-  testStorage();
+// Storing Items in Memory
+function storeItem(inputValue) {
+  testLocalStorage();
   const todo = {
     content: inputValue,
   };
-  let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-  console.log(tasks);
+  const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
   tasks.push(todo);
   localStorage.setItem("tasks", JSON.stringify(tasks));
-};
+}
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// TEST LOCAL STORAGE
-function testStorage() {
-  if (typeof Storage !== "undefined") {
-  } else {
+// Test Local Storage
+function testLocalStorage() {
+  if (typeof Storage === "undefined") {
     console.error("LocalStorage is not supported in this browser.");
   }
 }
 
-function loadItem() {
-  let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+function loadItemsFromStorage() {
+  const tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
   tasks.forEach((element) => {
-    create(element.content);
+    createItem(element.content);
   });
 }
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// COMBINE ALL FUNCTION
+// Combine All Functions
 const form = document.querySelector("#listItems");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  let inputElement = document.querySelector("#input");
-  let inputValue = inputElement.value;
-  menu();
+  const inputElement = document.querySelector("#input");
+  const inputValue = inputElement.value;
 
-  create(inputValue);
-
-  storage(inputValue);
+  setupMenuBar();
+  createItem(inputValue);
+  storeItem(inputValue);
 });
-loadItem();
+
+loadItemsFromStorage();
