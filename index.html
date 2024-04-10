@@ -1,0 +1,72 @@
+<!--Made By: Charles M Milam Jr |  | ToDo.html-->
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do Checklist</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="container">
+    <div class="navbar">
+      <nav>
+        <div class="navbar-sub-container">
+          <a
+            class="navbar-link"
+            href="https://08milam.github.io/home/"
+            target="_blank"
+            >◉</a
+          >
+          <a
+            class="navbar-link"
+            href="https://www.linkedin.com/in/matthewmilam/"
+            target="_blank"
+            >linkedin</a
+          >
+          <a
+            class="navbar-link"
+            href="https://08milam.github.io/projects/"
+            target="_blank"
+            >Projects</a
+          >
+          <a
+            class="navbar-link"
+            href="https://08milam.github.io/badges/"
+            target="_blank"
+            >Badges</a
+          >
+          <a
+            class="navbar-link"
+            href="https://github.com/08milam"
+            target="_blank"
+            >Github</a
+          >
+          <a class="navbar-link" href="mailto:08milam@gmail.com">E-mail</a>
+        </div>
+      </nav>
+    </div>
+    <div class="list-container">
+      <form action="" id="listItems">
+        <h1 class="name">CREATE A TODO</h1>
+        <div class="inputcontainer">
+          <input
+            type="text"
+            id="input"
+            placeholder="Add item"
+            min="1"
+            max="10"
+          />
+          <button class="add">Add</button>
+        </div>
+      </form>
+      <div class="list">
+        <ul id="toDoList"></ul>
+      </div>
+    </div>
+  </body>
+  <footer>
+    <script src="script.js"></script>
+  </footer>
+</html>
